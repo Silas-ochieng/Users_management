@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url # We'll install this for PostgreSQL on Render
-
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -63,10 +64,10 @@ EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587)) # Default to 587 if not set
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
 EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
 
-EMAIL_HOST_USER = 'silaoketch2021@gmail.com' # Your Gmail address (make sure it's correct)
-EMAIL_HOST_PASSWORD = 'pvyp pmsi sqok xwyn' # Your 16-character Gmail App Password
+EMAIL_HOST_USER = os.environ.get['silaoketch2021@gmail.com'] # Your Gmail address (make sure it's correct)
+EMAIL_HOST_PASSWORD = os.environ.get['pvyp pmsi sqok xwyn'] # Your 16-character Gmail App Password
 
-DEFAULT_FROM_EMAIL = 'User Portal Support <silaoketch2021@gmail.com>' # <--- CORRECTED FORMAT
+DEFAULT_FROM_EMAIL = os.environ.get('User Portal Support <silaoketch2021@gmail.com>') # <--- CORRECTED FORMAT
 SERVER_EMAIL = 'silaoketch2021@gmail.com'
 # Redirect URLs
 LOGIN_REDIRECT_URL = 'profile' # Redirect after successful login
