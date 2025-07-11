@@ -59,12 +59,10 @@ SITE_ID = 1 # Required for django.contrib.sites
 #EMAIL_FILE_PATH = BASE_DIR / 'sent_emails' # For development, prints emails to console
 # For production, you'd configure a real SMTP backend:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587)) # Default to 587 if not set
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
-
-EMAIL_HOST_USER = os.environ.get['silaoketch2021@gmail.com'] # Your Gmail address (make sure it's correct)
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  # Your Gmail address (make sure it's correct)
 EMAIL_HOST_PASSWORD = os.environ.get['pvyp pmsi sqok xwyn'] # Your 16-character Gmail App Password
 
 DEFAULT_FROM_EMAIL = os.environ.get('User Portal Support <silaoketch2021@gmail.com>') # <--- CORRECTED FORMAT
