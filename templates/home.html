@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {# <--- Tells Django this template uses base.html #}
+
+{% block title %}Welcome Home!{% endblock %} {# <--- Sets the page title #}
+
+{% block content %} {# <--- Defines the main content block for this page #}
+    <h1 class="text-primary text-center my-4">Welcome to the User Management System!</h1> {# Applied Bootstrap classes for text color, alignment, and margin #}
+
+    {% if user.is_authenticated %}
+        <p class="lead text-center">Hello, {{ user.username }}! You are logged in.</p> {# Applied Bootstrap classes for lead text and centering #}
+        <div class="d-grid gap-2 col-6 mx-auto"> {# Applied Bootstrap classes for responsive button grid, spacing, and centering #}
+            <a href="{% url 'profile' %}" class="btn btn-primary btn-lg">View Profile</a> {# Applied Bootstrap button classes #}
+            
+            {# --- CORRECTED LOGOUT FORM --- #}
+            <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-secondary btn-lg">Logout</button> {# Now a submit button inside the form #}
+            </form>
+            {# --- END CORRECTED LOGOUT FORM --- #}
+        </div>
+    {% else %}
+        <p class="lead text-center">Please log in or register to manage your account.</p> {# Applied Bootstrap classes for lead text and centering #}
+        <div class="d-grid gap-2 col-6 mx-auto"> {# Applied Bootstrap classes for responsive button grid, spacing, and centering #}
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a> {# Applied Bootstrap button classes #}
+            <a href="{% url 'register' %}" class="btn btn-success btn-lg">Register</a> {# Applied Bootstrap button classes #}
+        </div>
+    {% endif %}
+{% endblock content %} {# <--- Closes the main content block #}

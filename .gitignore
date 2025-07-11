@@ -1,0 +1,41 @@
+# .gitignore for Django projects
+
+# Python
+*.pyc
+__pycache__/
+.Python
+venv/ # Your virtual environment directory
+env/  # Common alternative name for virtual environment
+pip-log.txt
+pip-delete-this-directory.txt
+.python-version # For pyenv
+
+# IDEs
+.vscode/ # Visual Studio Code settings
+.idea/   # PyCharm/IntelliJ IDEA settings
+*.sublime-project
+*.sublime-workspace
+
+# Database
+db.sqlite3
+*.sqlite3-journal
+
+# Media files (user uploads)
+media/
+
+# Static files (collected for deployment)
+staticfiles/
+
+# Environment variables (CRUCIAL for sensitive data)
+.env
+
+# Render specific files (if any are generated)
+.render/
+
+# Other temporary files
+*.log
+*.pot
+*.mo
+*.coverage
+.DS_Store # macOS specific
+Thumbs.db # Windows specific

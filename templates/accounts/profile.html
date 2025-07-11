@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %} {# Make sure this is loaded if you use {% static %} for default image #}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm mb-4 text-center"> {# Centered for profile picture #}
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Welcome, {{ request.user.username|capfirst }}!</h2>
+
+                    {% if request.user.profile_picture %}
+                        <div class="text-center mb-4">
+                            <img src="{{ request.user.profile_picture.url }}"
+                                 alt="{{ request.user.username }}'s Profile Picture"
+                                 class="rounded-circle"
+                                 width="150"
+                                 height="150"
+                                 style="object-fit: cover;"> {# Added object-fit: cover for consistent sizing #}
+                        </div>
+                    {% else %}
+                        {# Display a default profile picture if none is uploaded #}
+                        <div class="text-center mb-4">
+                             <img src="{% static 'images/default_profile.png' %}"
+                                  alt="Default Profile Picture"
+                                  class="rounded-circle"
+                                  width="150"
+                                  height="150"
+                                  style="object-fit: cover;">
+                        </div>
+                    {% endif %}
+
+                    <ul class="list-group list-group-flush mb-4 text-start"> {# Aligned text left for list items #}
+                        <li class="list-group-item"><strong>Email:</strong> {{ request.user.email }}</li>
+                        <li class="list-group-item"><strong>User Type:</strong> <span class="badge bg-info">{{ request.user.user_type|capfirst }}</span></li>
+                        <li class="list-group-item"><strong>Bio:</strong> {{ request.user.bio|default:"Not provided" }}</li>
+                        <li class="list-group-item"><strong>About:</strong> {{ request.user.about|default:"Not provided" }}</li>
+                    </ul>
+
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-lg">Edit Profile</a>
+                        <a href="{% url 'change_password' %}" class="btn btn-secondary btn-lg">Change Password</a>
+                    </div>
+                </div>
+            </div>
+
+            {% if request.user.user_type == 'admin' %}
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Admin Actions:</h5>
+                        <div class="d-grid">
+                            <a href="{% url 'admin_user_list' %}" class="btn btn-info btn-lg">View All Users</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="text-center mt-4">
+                {# --- FIX START --- #}
+                {# Replace the <a> tag with a POST form for logout #}
+                <form action="{% url 'logout' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-lg">Logout</button>
+                </form>
+                {# --- FIX END --- #}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
