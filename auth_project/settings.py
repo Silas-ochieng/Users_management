@@ -168,7 +168,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Where collectstatic will put files for deployment
 
 # Media files (for user uploads like profile pictures)
 MEDIA_URL = '/media/'
