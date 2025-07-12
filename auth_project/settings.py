@@ -20,6 +20,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -162,8 +163,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# This is where Django will collect all static files for production deployment
+# This is where Django will look for static files in your apps and project-level static folder during development
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+# This is where 'collectstatic' will gather all static files for production deployment
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Enable WhiteNoise to serve static files in production
 STORAGES = {
     "default": {
@@ -173,6 +179,7 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
 
 # Media files (for user uploads like profile pictures)
 MEDIA_URL = '/media/'

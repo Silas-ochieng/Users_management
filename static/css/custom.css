@@ -1,0 +1,146 @@
+/* Custom CSS for Django User Management System */
+
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font, fallback to sans-serif */
+    background-color: #f8f9fa; /* Light gray background, complements Bootstrap */
+    color: #343a40; /* Dark gray text color */
+}
+
+/* Navbar Adjustments (if needed, otherwise Bootstrap's are good) */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.05); /* Subtle shadow for depth */
+}
+
+/* Container Spacing */
+/* Bootstrap's .container and .mt-4 are usually sufficient, but you can add more specific padding */
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 15px; /* More rounded corners for cards */
+    border: none; /* Remove default card border */
+    box-shadow: 0 4px 8px rgba(0,0,0,.1); /* More prominent shadow for cards */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+.card-title {
+    font-weight: 600; /* Make titles a bit bolder */
+    color: #007bff; /* Primary blue color for titles */
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px; /* Slightly rounded buttons */
+    font-weight: 500; /* Medium font weight for buttons */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #494f54;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-1px);
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+    transform: translateY(-1px);
+}
+
+/* Profile Picture Specifics */
+.rounded-circle {
+    border: 3px solid #007bff; /* A border around the profile picture */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); /* Soft glow effect */
+}
+
+/* Form Styles (using widget_tweaks, but custom CSS can refine) */
+.form-control {
+    border-radius: 8px; /* Match button rounding */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.05); /* Subtle inner shadow */
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, .25); /* Bootstrap's focus ring */
+}
+
+/* Messages (Alerts) */
+.alert {
+    border-radius: 8px; /* Rounded alerts */
+}
+
+/* Centering utility for elements not directly supported by Bootstrap's mx-auto on non-block elements */
+.text-center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Adjustments (Example - adjust as needed) */
+@media (max-width: 768px) {
+    .card {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .d-grid.col-6.mx-auto {
+        width: 80% !important; /* Make buttons wider on small screens */
+    }
+}
+
+/* Font Import (if not using Google Fonts link in base.html) */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
+
+/* If you want to use the Inter font, add this to your base.html <head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+*/
