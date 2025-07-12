@@ -33,7 +33,8 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True' # Use an env var for DE
 ALLOWED_HOSTS = []
 
 if not DEBUG:
-    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-0y19.onrender.com').split(',')
+
 
 
     # Ensure your Render app's URL is added to ALLOWED_HOSTS for production
