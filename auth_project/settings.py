@@ -162,12 +162,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
-# This is where Django will look for static files in your apps and project-level static folder during development
+
+# This is where Django will look for static files in your apps AND your project-level 'static' folder
+# during development. It's crucial for `collectstatic` to find your project's static files.
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'), # This should point to auth_project/static/
 ]
-# This is where 'collectstatic' will gather all static files for production deployment
+
+# This is where Django's `collectstatic` command will gather ALL static files
+# from your apps and STATICFILES_DIRS for production deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Enable WhiteNoise to serve static files in production
