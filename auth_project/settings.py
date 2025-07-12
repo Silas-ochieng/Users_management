@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-very-secret-key-
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True' # Use an env var for DEBUG
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 if not DEBUG:
     ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-0y19.onrender.com').split(',')
