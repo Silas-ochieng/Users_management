@@ -36,8 +36,8 @@ import os
 if DEBUG:
        ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 else:
-       ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-0y19.onrender.com').split(',')
-       ALLOWED_HOSTS.append('users-management-0y19.onrender.com')  # Ensure the host is included
+       ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'Users_management-0y19.onrender.com').split(',')
+       ALLOWED_HOSTS.append('Users_management-0y19.onrender.com')  # Ensure the host is included
        print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
 
