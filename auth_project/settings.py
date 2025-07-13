@@ -38,7 +38,7 @@ if DEBUG:
 else:
        ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-0y19.onrender.com').split(',')
        ALLOWED_HOSTS.append('users-management-0y19.onrender.com')  # Ensure the host is included
-   
+       print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
 
 
