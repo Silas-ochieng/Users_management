@@ -31,12 +31,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-very-secret-key-
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True' # Use an env var for DEBUG
 
 
+import os
+
 if DEBUG:
-    # Development mode — allow localhost and local IPs
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 else:
-    # Production — load from environment variable or default to your Render URL
     ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-0y19.onrender.com').split(',')
+
+
 
 
 
