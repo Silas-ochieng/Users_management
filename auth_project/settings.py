@@ -33,12 +33,11 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True' # Use an env var for DE
 
 import os
 
-if DEBUG:
-       ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+host_env = os.environ.get('ALLOWED_HOSTS', '').strip()
+if host_env:
+    ALLOWED_HOSTS = [h.strip() for h in host_env.split(',') if h.strip()]
 else:
-       ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'users-management-6a4i.onrender.com').split(',')
-       ALLOWED_HOSTS.append('users-management-6a4i.onrender.com')  # Ensure the host is included
-       print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
+    ALLOWED_HOSTS = ['users-management-6a4i.onrender.com']
 
 
 
